@@ -1,0 +1,32 @@
+{
+	"geode": "4.6.1",
+	"gd": {
+		"win": "2.2074"
+	},
+	"id": "fra4.test",
+	"name": "Custom ProgressBar",
+	"version": "v1.0.0",
+	"developer": "Fra4",
+	"description": "A mod that lets you customize the progress bar",
+	 "settings": {
+	"vertical-progress-bar": {
+    	"type": "bool",
+    	"name": "Vertical progress bar",
+    	"description": "Beta feature",
+    	"default": false
+	},
+		"Heigth": {
+    		"type": "string",
+    		"name": "Heigth",
+    		"default": "Top",
+    		"one-of": ["Top", "Bottom"]
+		},
+		"Position": {
+    		"type": "string",
+    		"name": "Position",
+    		"default": "Center",
+    		"one-of": ["Left", "Center", "Right"]
+		}
+		
+	}
+}
