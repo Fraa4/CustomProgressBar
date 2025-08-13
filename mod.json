@@ -8,6 +8,7 @@
 	"version": "v1.0.0",
 	"developer": "Fra4",
 	"description": "A mod that lets you customize the progress bar",
+	"tags": ["offline","utility","customization"],
 	 "settings": {
 	"vertical-progress-bar": {
     	"type": "bool",
