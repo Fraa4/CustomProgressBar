@@ -5,7 +5,7 @@
 	},
 	"id": "fra4.custom-progress-bar",
 	"name": "Custom ProgressBar",
-	"version": "v1.0.0",
+	"version": "v1.0.2",
 	"developer": "Fra4",
 	"description": "A mod that lets you customize the progress bar",
 	"tags": ["offline","utility","customization"],
@@ -27,6 +27,22 @@
     		"name": "Position",
     		"default": "Center",
     		"one-of": ["Left", "Center", "Right"]
+		},
+		"Scale": {
+			"type": "float",
+			"name": "Scale",
+			"default": 1,
+			"min": 0.1,
+			"max": 2,
+			"controls": {
+				"arrows": true,
+				"arrow-step": 0.1,
+				"big-arrows": false,
+				"big-arrow-step": 0.5,
+				"slider": true,
+				"slider-step": 0.1,
+				"input": false
+			}
 		}
 		
 	}

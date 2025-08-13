@@ -16,7 +16,6 @@ class $modify(PlayLayer) {
 
     bool init(GJGameLevel* level, bool useReplay, bool dontCreateObjects) {
         if (!PlayLayer::init(level, useReplay, dontCreateObjects)) return false;
-        
         if(m_progressBar&&m_percentageLabel&&!m_fields->progressBarFound)
         {
             moveProgressBar();
@@ -48,15 +47,19 @@ class $modify(PlayLayer) {
     };
     void moveProgressBar()
     {
+        auto winSize = CCDirector::get()->getWinSize();
+        
         auto vert=Mod::get()->getSettingValue<bool>("vertical-progress-bar");
         auto pos=Mod::get()->getSettingValue<std::string>("Position");
-            geode::log::info(fmt::runtime("{}"),pos);
-            
+        auto scale=Mod::get()->getSettingValue<float>("Scale");
+        geode::log::info(fmt::runtime("{}"),pos);
+        m_progressBar->setScale(scale);
+        m_percentageLabel->setScale(scale*0.5);    
             if(vert)
             {
                 m_progressBar->setRotation(-90);
-                m_progressBar-> setPositionY(160);
-                m_percentageLabel->setPositionY(280);
+                m_progressBar-> setPositionY(winSize.height/2);
+                m_percentageLabel->setPositionY(winSize.height/2+120*scale);
                 
                 
                 /*
@@ -76,16 +79,16 @@ class $modify(PlayLayer) {
                 {
                     m_percentageLabel->setAnchorPoint(CCPoint(1,0.5));
                     m_fields->anchor=CCPoint(1,0.5);
-                    m_percentageLabel->setPositionX(564);
-                    m_fields->percentageXPos=564;
-                    m_progressBar-> setPositionX(559);
+                    m_percentageLabel->setPositionX(winSize.width);
+                    m_fields->percentageXPos=winSize.width;
+                    m_progressBar-> setPositionX(winSize.width-10*scale);
 
 
                 }
                 else
                 {
-                    m_progressBar-> setPositionX(10);
-                    m_percentageLabel->setPositionX(0.5);
+                    m_progressBar-> setPositionX(10*scale);
+                    m_percentageLabel->setPositionX(0);
                     m_fields->percentageXPos=0.5;
                     /*
                     if(rotate)
@@ -112,15 +115,23 @@ class $modify(PlayLayer) {
                 }
                 if(pos=="Right")
                 {
-                    m_progressBar->setPositionX(425.5);
-                    m_percentageLabel->setPositionX(535.5);
-                    m_fields->percentageXPos=535.5;
+                    m_progressBar->setAnchorPoint(CCPoint(1,0.5f));
+                    m_progressBar->setPositionX(winSize.width-(50)*scale);
+                    m_fields->anchor= CCPoint(0,0.5f);
+                    m_percentageLabel->setPositionX(winSize.width-45*scale);
+                    m_fields->percentageXPos=winSize.width-45*scale;
                 }
                 else if(pos=="Left")
                 {
-                    m_progressBar->setPositionX(114.5);
-                    m_percentageLabel->setPositionX(224.5);
-                    m_fields->percentageXPos=224.5;
+                    m_progressBar->setPositionX(5);
+                    m_progressBar->setAnchorPoint(CCPoint(0,0.5f));
+                    m_percentageLabel->setPositionX(220*scale);
+                    m_fields->percentageXPos=220*scale;
+                }
+                else
+                {
+                    m_percentageLabel->setPositionX(winSize.width/2+109.5*scale);
+                    m_fields->percentageXPos=winSize.width/2+109.5*scale;
                 }
         }
     };
