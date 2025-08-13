@@ -8,6 +8,7 @@ class $modify(PlayLayer) {
         bool progressBarFound = false;
         int frameFound=0;
         int percentageXPos=394.5;
+        CCPoint anchor=CCPoint(0,0.5f);
     };
     static void onModify(auto& self) {
         self.setHookPriorityPost("PlayLayer::init", Priority::VeryLate);
@@ -43,6 +44,7 @@ class $modify(PlayLayer) {
         
         }
         m_percentageLabel->setPositionX(m_fields->percentageXPos);
+        m_percentageLabel->setAnchorPoint(m_fields->anchor);
     };
     void moveProgressBar()
     {
@@ -56,8 +58,9 @@ class $modify(PlayLayer) {
                 m_progressBar-> setPositionY(160);
                 m_percentageLabel->setPositionY(280);
                 
-                CCNode* players = m_progressBar->getChildByType(1);
+                
                 /*
+                CCNode* players = m_progressBar->getChildByType(1);
                 bool rotate=false;  
                 if (players) {
                     geode::log::info("Globed players detected");
@@ -72,6 +75,7 @@ class $modify(PlayLayer) {
                 if(pos=="Right")
                 {
                     m_percentageLabel->setAnchorPoint(CCPoint(1,0.5));
+                    m_fields->anchor=CCPoint(1,0.5);
                     m_percentageLabel->setPositionX(564);
                     m_fields->percentageXPos=564;
                     m_progressBar-> setPositionX(559);
