@@ -12,3 +12,5 @@ To do:
 
 - Fix globed progress bar to align and rotate players in the progress bar correctly.
 - Add support to different platforms.
+
+Logo by notd4n1
