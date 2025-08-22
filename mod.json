@@ -17,7 +17,6 @@
 		"vertical-progress-bar": {
 			"type": "bool",
 			"name": "Vertical progress bar",
-			"description": "Beta feature",
 			"default": false
 		},
 		"Height": {
