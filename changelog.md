@@ -1,3 +1,6 @@
+# 1.0.4
+- Fixed visual bugs
+
 # 1.0.2
 - Added scaling options.
 - Fixed alignment issues.
@@ -6,4 +9,4 @@
 - Fixed alignement issues on different resolution.
 
 # 1.0.0
-- Inital release, added alignement features.
+- Initial release, added alignement features.

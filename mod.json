@@ -8,28 +8,29 @@
 	},
 	"id": "fra4.custom-progress-bar",
 	"name": "Custom ProgressBar",
-	"version": "v1.0.3",
+	"version": "v1.0.4",
 	"developer": "Fra4",
 	"description": "A mod that lets you customize the progress bar",
 	"tags": ["offline","utility","customization"],
-	 "settings": {
-	"vertical-progress-bar": {
-    	"type": "bool",
-    	"name": "Vertical progress bar",
-    	"description": "Beta feature",
-    	"default": false
-	},
-		"Heigth": {
-    		"type": "string",
-    		"name": "Heigth",
-    		"default": "Top",
-    		"one-of": ["Top", "Bottom"]
+	"links": {"source": "https://github.com/Fraa4/CustomProgressBar"},
+	"settings": {
+		"vertical-progress-bar": {
+			"type": "bool",
+			"name": "Vertical progress bar",
+			"description": "Beta feature",
+			"default": false
+		},
+		"Height": {
+			"type": "string",
+			"name": "Height",
+			"default": "Top",
+			"one-of": ["Top", "Bottom"]
 		},
 		"Position": {
-    		"type": "string",
-    		"name": "Position",
-    		"default": "Center",
-    		"one-of": ["Left", "Center", "Right"]
+			"type": "string",
+			"name": "Position",
+			"default": "Center",
+			"one-of": ["Left", "Center", "Right"]
 		},
 		"Scale": {
 			"type": "float",
@@ -47,6 +48,5 @@
 				"input": false
 			}
 		}
-		
 	}
 }

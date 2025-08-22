@@ -1,16 +1,14 @@
-# Custom Progress Bar
+# Custom Progress Bar  
 
-This mod lets you customize the position and rotation of the progress bar
+This mod lets you fully customize the position, rotation, and scale of the progress bar.  
 
-Current features:
-- Align left,center (vanilla) or right of the screen.
-- Align top (vanilla) or bottom of the screen.
-- Vertical progress bar (does not work with align top or bottom, just left or right).
-- Scale progress bar.
+## Current Features  
+- Align the progress bar to the left, center (vanilla), or right side of the screen.  
+- Align to the top (vanilla) or bottom of the screen.  
+- Vertical progress bar option (works with left or right alignment, not with top or bottom).  
+- Adjustable progress bar scale.  
 
-To do:
+## To Do  
+- Fix the globed progress bar so that players are aligned and rotated correctly inside it.  
 
-- Fix globed progress bar to align and rotate players in the progress bar correctly.
-- Add support to different platforms.
-
-Logo by notd4n1
+*Logo by notd4n1*  
