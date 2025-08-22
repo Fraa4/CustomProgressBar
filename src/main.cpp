@@ -5,10 +5,10 @@ using namespace geode::prelude;
 
 class $modify(PlayLayer) {
     struct Fields {
-        bool movedProgressBar = false;
+        //Calls two times since after the first time it is called playlayer moves the percentageXPosition after updateProgressBar
+        int moveProgressBar = 2;
         bool pbSetting=false, pgSetting=false;
         int frameFound = 0;
-        int percentageXPos = 394.5;
     };
     
     void updateProgressbar()
@@ -17,20 +17,20 @@ class $modify(PlayLayer) {
         
         //Check if progressBar and percentageLabel settings are changed and save new values
         bool pbNewSetting = GameManager::get()->m_showProgressBar;
-        bool pbChanged = (pbNewSetting == m_fields->pbSetting);
+        bool pbChanged = (pbNewSetting != m_fields->pbSetting);
         bool pgNewSetting = GameManager::get()->getGameVariable("0040");
-        bool pgChanged = (pgNewSetting == m_fields->pgSetting);
+        bool pgChanged = (pgNewSetting != m_fields->pgSetting);
         m_fields->pbSetting=pbNewSetting;
         m_fields->pgSetting=pgNewSetting;
 
         //run the function if any settings has changed
         bool runFunc=pbChanged || pgChanged;
 
-        if(!m_fields->movedProgressBar || runFunc)
+        if(m_fields->moveProgressBar>0 || runFunc)
         {
             moveProgressBar();
-            m_fields->movedProgressBar=true;
-            log::info("moved progress bar");
+            m_fields->moveProgressBar--;
+            log::debug("moved progress bar");
         }
     };
     
@@ -44,7 +44,6 @@ class $modify(PlayLayer) {
 
         bool pbSetting=m_fields->pbSetting;
 
-        geode::log::info("{}",pos);
         m_progressBar->setScale(scale);
         m_percentageLabel->setScale(scale*0.5);
 
@@ -64,7 +63,6 @@ class $modify(PlayLayer) {
             {
                 m_percentageLabel->setAnchorPoint(CCPoint(1, 0.5));
                 m_percentageLabel->setPositionX(winSize.width);
-                m_fields->percentageXPos = winSize.width;
                 m_progressBar->setPositionX(winSize.width-10 * scale);
             }
             else
@@ -72,7 +70,6 @@ class $modify(PlayLayer) {
                 m_percentageLabel->setAnchorPoint(CCPoint(0, 0.5));
                 m_progressBar->setPositionX(10 * scale);
                 m_percentageLabel->setPositionX(0);
-                m_fields->percentageXPos = 0;
             }
         }
         else
@@ -90,19 +87,24 @@ class $modify(PlayLayer) {
                 m_progressBar->setPositionX(winSize.width-(50)*scale);
                 m_percentageLabel->setAnchorPoint(CCPoint(0,0.5f));
                 m_percentageLabel->setPositionX(winSize.width-45*scale);
-                m_fields->percentageXPos=winSize.width-45*scale;
             }
             else if(pos=="Left")
             {
                 m_progressBar->setPositionX(5);
                 m_progressBar->setAnchorPoint(CCPoint(0,0.5f));
-                m_percentageLabel->setPositionX(220*scale);
-                m_fields->percentageXPos=220*scale;
+                m_percentageLabel->setAnchorPoint(CCPoint(0,0.5f));
+                if(pbSetting)
+                {
+                    m_percentageLabel->setPositionX(220*scale);
+                }
+                else
+                {
+                    m_percentageLabel->setPositionX(10);
+                }
             }
             else if(pbSetting)
             {
                 m_percentageLabel->setPositionX(winSize.width/2+109.5*scale);
-                m_fields->percentageXPos=winSize.width/2+109.5*scale;
             }
         }
     };
