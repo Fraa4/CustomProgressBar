@@ -11,4 +11,6 @@ This mod lets you fully customize the position, rotation, and scale of the progr
 ## To Do  
 - Fix the globed progress bar so that players are aligned and rotated correctly inside it.  
 
+
+*Idea by xSlendy*\
 *Logo by notd4n1*  
