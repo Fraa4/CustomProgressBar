@@ -8,7 +8,7 @@
 	},
 	"id": "fra4.custom-progress-bar",
 	"name": "Custom ProgressBar",
-	"version": "v1.0.6",
+	"version": "v1.0.7",
 	"developer": "Fra4",
 	"description": "A mod that lets you customize the progress bar",
 	"tags": ["offline","utility","customization"],
@@ -52,7 +52,7 @@
 			"name": "Border offset",
 			"default": 5,
 			"min": 0,
-			"max": 50,
+			"max": 100,
 			"controls": {
 				"arrows": true,
 				"arrow-step": 1,
@@ -60,6 +60,22 @@
 				"big-arrow-step": 1,
 				"slider": true,
 				"slider-step": 1,
+				"input": false
+			}
+		},
+		"Opacity":{
+			"type": "float",
+			"name": "Opacity",
+			"default": 1,
+			"min": 0,
+			"max": 1,
+			"controls": {
+				"arrows": true,
+				"arrow-step": 0.1,
+				"big-arrows": false,
+				"big-arrow-step": 0.5,
+				"slider": true,
+				"slider-step": 0.1,
 				"input": false
 			}
 		}

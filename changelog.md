@@ -1,3 +1,6 @@
+# 1.0.7
+- Added opacity control
+
 # 1.0.6
 - Fixed platformer timeLabel not setting in the right x position
 - Added adjustable border offset

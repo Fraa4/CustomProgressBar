@@ -9,6 +9,7 @@ class $modify(PlayLayer) {
         int moveProgressBar = 2;
         bool pbSetting=false, pgSetting=false;
         int frameFound = 0;
+        int test=1;
     };
     
     void updateProgressbar()
@@ -21,7 +22,13 @@ class $modify(PlayLayer) {
         bool pgChanged = (pgNewSetting != m_fields->pgSetting);
         m_fields->pbSetting=pbNewSetting;
         m_fields->pgSetting=pgNewSetting;
+        
         PlayLayer::updateProgressbar();
+        float opacity=Mod::get()->getSettingValue<float>("Opacity")*255;
+        m_progressBar->setOpacity(opacity);
+        CCSprite* image=m_progressBar->getChildByType<CCSprite>(0);
+        image->setOpacity(opacity);
+        m_percentageLabel->setOpacity(opacity);
         if(!m_isPlatformer)
         {
 
