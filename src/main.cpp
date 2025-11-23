@@ -9,7 +9,6 @@ class $modify(PlayLayer) {
         int moveProgressBar = 2;
         bool pbSetting=false, pgSetting=false;
         int frameFound = 0;
-        int test=1;
     };
     
     void updateProgressbar()
