@@ -1,14 +1,14 @@
 {
-	"geode": "4.10.0",
+	"geode": "5.0.0-beta.4",
 	"gd": {
-        "win": "2.2074",
-        "android": "2.2074",
-        "mac": "2.2074",
-        "ios": "2.2074"
+        "win": "2.2081",
+        "android": "2.2081",
+        "mac": "2.2081",
+        "ios": "2.2081"
 	},
 	"id": "fra4.custom-progress-bar",
 	"name": "Custom ProgressBar",
-	"version": "v1.0.7",
+	"version": "v1.0.8",
 	"developer": "Fra4",
 	"description": "A mod that lets you customize the progress bar",
 	"tags": ["offline","utility","customization"],

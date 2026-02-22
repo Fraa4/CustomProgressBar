@@ -1,3 +1,6 @@
+# 1.0.8
+- Support for Geode v5/GD 2.2081
+
 # 1.0.7
 - Added opacity control
 
