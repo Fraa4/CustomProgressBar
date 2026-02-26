@@ -72,7 +72,8 @@ class $modify(PlayLayer) {
         auto vert = Mod::get()->getSettingValue<bool>("vertical-progress-bar");
         auto pos = Mod::get()->getSettingValue<std::string>("Position");
         auto scale = Mod::get()->getSettingValue<float>("Scale");
-        auto offset = Mod::get()->getSettingValue<int>("Border-offset");
+        auto xOffset = Mod::get()->getSettingValue<int>("x-offset");
+        auto yOffset = Mod::get()->getSettingValue<int>("y-offset");
         bool pbSetting=m_fields->pbSetting;
 
         m_progressBar->setScale(scale);
@@ -83,8 +84,8 @@ class $modify(PlayLayer) {
             if(pbSetting)
             {
                 m_progressBar->setRotation(-90);
-                m_progressBar-> setPositionY(winSize.height/2);
-                m_percentageLabel->setPositionY(winSize.height/2+120*scale);
+                m_progressBar-> setPositionY(winSize.height/2+yOffset);
+                m_percentageLabel->setPositionY(winSize.height/2+120*scale + yOffset);
             }
             else
             {
@@ -93,14 +94,14 @@ class $modify(PlayLayer) {
             if(pos=="Right")
             {
                 m_percentageLabel->setAnchorPoint(CCPoint(1, 0.5));
-                m_percentageLabel->setPositionX(winSize.width-offset*scale);
-                m_progressBar->setPositionX(winSize.width+(-10-offset) * scale);
+                m_percentageLabel->setPositionX(winSize.width+xOffset*scale);
+                m_progressBar->setPositionX(winSize.width+(-10+xOffset) * scale);
             }
             else
             {
                 m_percentageLabel->setAnchorPoint(CCPoint(0, 0.5));
-                m_progressBar->setPositionX((10+offset) * scale);
-                m_percentageLabel->setPositionX(offset*scale);
+                m_progressBar->setPositionX((10+xOffset) * scale);
+                m_percentageLabel->setPositionX(xOffset*scale);
             }
         }
         else
@@ -109,33 +110,43 @@ class $modify(PlayLayer) {
 
             if(ht=="Bottom")
             {
-                m_progressBar->setPositionY(15);
-                m_percentageLabel->setPositionY(15);
+                m_progressBar->setPositionY(15+yOffset);
+                m_percentageLabel->setPositionY(15+yOffset);
+            }
+            else
+            {
+                m_progressBar->setPositionY(m_progressBar->getPositionY()+yOffset);
+                m_percentageLabel->setPositionY(m_percentageLabel->getPositionY()+yOffset);
             }
             if(pos=="Right")
             {
                 m_progressBar->setAnchorPoint(CCPoint(1,0.5f));
-                m_progressBar->setPositionX(winSize.width-(50+offset)*scale);
+                m_progressBar->setPositionX(winSize.width-(50+xOffset)*scale);
                 m_percentageLabel->setAnchorPoint(CCPoint(0,0.5f));
-                m_percentageLabel->setPositionX(winSize.width-(45+offset)*scale);
+                m_percentageLabel->setPositionX(winSize.width-(45+xOffset)*scale);
             }
             else if(pos=="Left")
             {
-                m_progressBar->setPositionX(offset);
+                m_progressBar->setPositionX(xOffset);
                 m_progressBar->setAnchorPoint(CCPoint(0,0.5f));
                 m_percentageLabel->setAnchorPoint(CCPoint(0,0.5f));
                 if(pbSetting)
                 {
-                    m_percentageLabel->setPositionX(5+offset+215*scale);
+                    m_percentageLabel->setPositionX(5+xOffset+215*scale);
                 }
                 else
                 {
-                    m_percentageLabel->setPositionX(10+offset);
+                    m_percentageLabel->setPositionX(10+xOffset);
                 }
             }
             else if(pbSetting)
             {
-                m_percentageLabel->setPositionX(winSize.width/2+109.5*scale);
+                m_percentageLabel->setPositionX(winSize.width/2+109.5*scale+xOffset);
+                m_progressBar->setPositionX(winSize.width/2+xOffset);
+            }
+            else
+            {
+                m_percentageLabel->setPositionX(winSize.width/2+xOffset);
             }
         }
     };
@@ -157,16 +168,16 @@ class $modify(PlayLayer) {
         auto winSize = CCDirector::get()->getWinSize();
         auto pos = Mod::get()->getSettingValue<std::string>("Position");
         
-        auto offset = Mod::get()->getSettingValue<int>("Border-offset");
+        auto xOffset = Mod::get()->getSettingValue<int>("x-offset");
         if(pos=="Right")
         {
             m_percentageLabel->setAnchorPoint(CCPoint(1,0.5f));
-            m_percentageLabel->setPositionX(winSize.width-offset);
+            m_percentageLabel->setPositionX(winSize.width+xOffset);
         }
         else if(pos=="Left")
         {
             m_percentageLabel->setAnchorPoint(CCPoint(0,0.5f));
-            m_percentageLabel->setPositionX(offset);
+            m_percentageLabel->setPositionX(xOffset);
         }
     }
 };

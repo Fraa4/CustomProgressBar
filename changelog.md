@@ -1,3 +1,7 @@
+# 1.0.9
+- Added y offset
+- Now both x and y offset work in every setting instead of just vertical mode
+
 # 1.0.8
 - Support for Geode v5/GD 2.2081
 

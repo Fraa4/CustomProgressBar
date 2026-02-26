@@ -1,5 +1,5 @@
 {
-	"geode": "5.0.0-beta.4",
+	"geode": "5.0.1",
 	"gd": {
         "win": "2.2081",
         "android": "2.2081",
@@ -8,7 +8,7 @@
 	},
 	"id": "fra4.custom-progress-bar",
 	"name": "Custom ProgressBar",
-	"version": "v1.0.8",
+	"version": "v1.0.9",
 	"developer": "Fra4",
 	"description": "A mod that lets you customize the progress bar",
 	"tags": ["offline","utility","customization"],
@@ -47,11 +47,27 @@
 				"input": false
 			}
 		},
-		"Border-offset": {
+		"x-offset": {
 			"type": "int",
-			"name": "Border offset",
-			"default": 5,
-			"min": 0,
+			"name": "x offset",
+			"default": 0,
+			"min": -100,
+			"max": 100,
+			"controls": {
+				"arrows": true,
+				"arrow-step": 1,
+				"big-arrows": false,
+				"big-arrow-step": 1,
+				"slider": true,
+				"slider-step": 1,
+				"input": false
+			}
+		},
+		"y-offset": {
+			"type": "int",
+			"name": "y offset",
+			"default": 0,
+			"min": -100,
 			"max": 100,
 			"controls": {
 				"arrows": true,
